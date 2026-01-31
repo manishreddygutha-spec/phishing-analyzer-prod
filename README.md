@@ -33,6 +33,7 @@ The system processes emails using **independent detection agents**, then correla
 
 ## 📂 Project Structure
 
+```text
 phishing-analyzer-prod/
 │
 ├── __init__.py
@@ -61,13 +62,13 @@ phishing-analyzer-prod/
 │   │
 │   ├── config/
 │   │   └── risk_config.py
-│   │ 
-│   └── safety/
+│   │
+│   ├── safety/
 │   │   └── guardrails.py
 │   │
 │   └── utils/
 │       └── resilience.py
-│   
+│
 ├── samples/
 │   ├── dhl_delivery_failure_phish.eml
 │   ├── microsoft_password_reset_phish.eml
@@ -85,6 +86,7 @@ phishing-analyzer-prod/
 ├── .env
 ├── requirements.txt
 └── pyproject.toml
+```
 
 ---
 
@@ -236,50 +238,51 @@ No agent can directly allow or block an email on its own.
     }
   }
 }
-
+```
 ---
 
 ## 🐍 Python Virtual Environment Setup
 
 ### 1️⃣ Create virtual environment
 
-'''bash
+```bash
 python -m venv venv
-'''
+```
+
 ### 2️⃣ Activate virtual environment
 
 #### Windows
 
-'''bash
+```bash
 venv\Scripts\activate
-'''
+```
 
 #### macOS / Linux
 
-'''bash
+```bash
 source venv/bin/activate
-'''
+```
 ### 3️⃣ Install dependencies
 
-'''bash
+```bash
 pip install -r requirements.txt
-'''
+```
 
 ---
 
 ## ▶️ Run the Application
 
-'''bash
+```bash
 streamlit run app/app.py
-'''
+```
 Upload a .eml file and view the phishing analysis.
 ---
 
 ## 🧪 Run Tests
 
-'''bash
+```bash
 pytest --cov=phishing_analyzer
-'''
+```
 ✔ Minimum 70% test coverage enforced
 ---
 ## 🛠 Resilience & Reliability
