@@ -1,0 +1,353 @@
+Delivered-To: manishreddy.gutha@gmail.com
+Received: by 2002:a17:504:2c22:b0:1c77:f0f4:e55b with SMTP id a2csp2181250njr;
+        Sat, 10 Jan 2026 06:04:18 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHrRryG0y8ywtk8/kqOvkLr4+gguDFizdx32P7eq6I1afOBY1jYG3YOe7Az8Xt9sZCsR1Lt
+X-Received: by 2002:a05:622a:5cc:b0:4f4:c080:15e5 with SMTP id d75a77b69052e-4ffb47d7798mr178948151cf.1.1768053858300;
+        Sat, 10 Jan 2026 06:04:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768053858; cv=none;
+        d=google.com; s=arc-20240605;
+        b=M21CKhw7/3SOByGX4lA51r/psFA/6CRdLHCstn0o2IsnCcnxyYeAn51w1wzw9SjG31
+         CVkCYKrUMKRDLXyXjzqD4XEbooWinyyP9RWTSFu1+bIWm1/rtbUx2uqD0SeTeHOsFgwZ
+         Rve9VfbYJMsCJwNhRCJWblS4lWUb4IraLGSiWe4Nh45HkRbdElm9DM67QGWhv7HQ0cG1
+         xfGtREcamBpR2y4AZXvnsse1AjyCYfXz+Wz3uhfhxH9LmyVPLryyWSMqAI+IKOhPq1jI
+         0kuzOv/TksUF/Q7g4f9ZENnnjJN2jS+JZVoNudyqac9Noi0Izw4VVezEfCNQzcThFeQH
+         gtmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:to:from:subject:mime-version:date:dkim-signature
+         :dkim-signature;
+        bh=ncT3LwckQxvoI/ThbUfOSwz37FbTp6rzpvB6bS+Fpj8=;
+        fh=rUssluQMzUIzH11Zaq7P+yk1dveFmc6d8QXLykgI95k=;
+        b=HOgt+FDbbw4JqLYuJrcGpsXG8S3kOFzieJRfSqvqd2FkpYDg+FYTrQ/k29gzo1R2Py
+         izAJqHYY9qUGAg29Lw6ZLc/iSXjSLRIcpALWW4cErqhfxtwEAJ5bSgiM6LH2urMMnsA8
+         y/oIj+wI2pRA9qOqC0lZLQXzgxJfoawIJoq4wnFicET/244hq0WMVHKHyQpuYGlPUdaw
+         i//vAs2ZdkijMan5Dlwj16SI/Bb8c14BufmV3HMaGlrwhv4AOY9AHvZJ2YUq3a5tHHeq
+         uTsA/M7dcA00jivHY+pNh2rPGtMBMbP7hfSw63b/nL/NTvoDGdqdcDWWFy/+MJJiZYCL
+         p8kA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cio56239.tryhackme.com header.s=smtp header.b=AIvxabLV;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=Qz4nQIFm;
+       spf=pass (google.com: domain of postmaster@cio56239.tryhackme.com designates 159.112.241.136 as permitted sender) smtp.mailfrom=postmaster@cio56239.tryhackme.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=tryhackme.com
+Return-Path: <postmaster@cio56239.tryhackme.com>
+Received: from m241-136.mailgun.net (m241-136.mailgun.net. [159.112.241.136])
+        by mx.google.com with UTF8SMTPS id d75a77b69052e-4ffa8e8b1c5si144069311cf.255.2026.01.10.06.04.18
+        for <manishreddy.gutha@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 10 Jan 2026 06:04:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of postmaster@cio56239.tryhackme.com designates 159.112.241.136 as permitted sender) client-ip=159.112.241.136;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cio56239.tryhackme.com header.s=smtp header.b=AIvxabLV;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=Qz4nQIFm;
+       spf=pass (google.com: domain of postmaster@cio56239.tryhackme.com designates 159.112.241.136 as permitted sender) smtp.mailfrom=postmaster@cio56239.tryhackme.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=tryhackme.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=cio56239.tryhackme.com; q=dns/txt; s=smtp; t=1768053857; x=1768061057;
+ h=Message-Id: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: X-Feedback-Id: Sender;
+ bh=ncT3LwckQxvoI/ThbUfOSwz37FbTp6rzpvB6bS+Fpj8=;
+ b=AIvxabLV1I4771kVWfCGf4ZemWQ0hyFrphNJu9Kq0KU1gCESFcnuZKEclBKYwSZBEOr/sjm8SLr/SQqpILA7D81n9fcexV8wJPlxIFm+7AAs6Qk3RZxHcvApV5wZUeA8441paLYBuG1wGCdnM+XX3IJePDnOAuv2oLMDu+Omrvg=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg; t=1768053857; x=1768061057;
+ h=Message-Id: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: X-Feedback-Id: Sender;
+ bh=ncT3LwckQxvoI/ThbUfOSwz37FbTp6rzpvB6bS+Fpj8=;
+ b=Qz4nQIFmnp/PNzq/D70vWeH/3oCrKAmFQFKFDhYDKvtIfENZlqUm0lVodC22qnTGjbwP54WWPlayvYuKL9+xeYP073CdvYjkIomndMei0+09540RV6daWlzXNx4IPfb0JkOg3DpyxtMuDib8t+Vw3XHlfIMyPot4tFFN811otuA=
+X-Mailgun-Sid: WyI3NGM5YyIsIm1hbmlzaHJlZGR5Lmd1dGhhQGdtYWlsLmNvbSIsIjI4NmQ1YSJd
+X-Feedback-Id: postmaster@cio56239.tryhackme.com::5eb3f9f45e348a34cf90b8e5:mailgun
+Received: by 81516a64ebe5a34b74f4296ddc7fd62891fb611279fecdadd5ea71249b683a9b with HTTP
+ id 69625c61153e627ddee7aaac; Sat, 10 Jan 2026 14:04:17 GMT
+X-Mailgun-Sending-Ip: 159.112.241.136
+Date: Sat, 10 Jan 2026 14:04:17 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="a1c7a10c3c408d96c5a2279b60731946d6a3c9c6b68c696a12bdecd72880"
+Subject: =?UTF-8?q?Help_shape_Advent_of_Cyber_2026_=F0=9F=8E=84?=
+From: TryHackMe <donotreply@tryhackme.com>
+To: manishreddy.gutha@gmail.com
+X-Mailgun-Track-Opens: false
+X-Mailgun-Dkim: true
+X-Mailgun-Native-Send: true
+X-Mailgun-Track-Clicks: false
+X-Mailer: Customer.io (dgTK1QUDALzNuAS7zbgEAZuoNgiGuSjfaBKK4AX8mA==;
+ +https://whatis.customeriomail.com)
+X-Report-Abuse-To: badactor@customer.io
+X-Mailgun-Variables: {"email_id": "dgTK1QUDALzNuAS7zbgEAZuoNgiGuSjfaBKK4AX8mA=="}
+Message-Id: <20260110140417.010abe80c3b02bc4@cio56239.tryhackme.com>
+
+--a1c7a10c3c408d96c5a2279b60731946d6a3c9c6b68c696a12bdecd72880
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+TryHackMe
+
+=C2=A0
+
+Hi manishreddy.gutha,
+
+Advent of Cyber may be over, but we=E2=80=99re already thinking about how t=
+o make next year even better. =F0=9F=8E=84
+
+You joined us for 24 days of Advent of Cyber fun, now we=E2=80=99d love you=
+r feedback. =F0=9F=A7=A0
+
+Your feedback will help us understand:
+
+=E2=96=B8 What worked well (and what didn=E2=80=99t)
+
+=E2=96=B8 Which topics you enjoyed most
+
+=E2=96=B8 How the difficulty felt across the event
+
+=E2=96=B8 How we can improve Advent of Cyber for 2026
+
+Take the Advent of Cyber survey ( https://docs.google.com/forms/d/e/1FAIpQL=
+SeDUSCk_LKOM44vHzIRQRkHBrt6_VgSI-Ov6DA1ifwmNnpokw/formResponse )
+
+The survey takes just a few minutes, and every response genuinely helps us =
+shape future content for the community.
+
+Thanks again for being part of Advent of Cyber, we couldn=E2=80=99t do it w=
+ithout learners like you.
+
+Happy hacking,
+
+The TryHackMe Team
+--a1c7a10c3c408d96c5a2279b60731946d6a3c9c6b68c696a12bdecd72880
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<!DOCTYPE html><html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"u=
+rn:schemas-microsoft-com:office:office" lang=3D"en"><head>
+  <title>Advent of Cyber Feedback</title>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"/=
+>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1=
+"/>
+  <!--[if mso]>
+  <xml>
+    <w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word">
+      <w:DontUseAdvancedTypographyReadingMail/>
+    </w:WordDocument>
+    <o:OfficeDocumentSettings>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+      <o:AllowPNG/>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;padding:0}
+    a[x-apple-data-detectors]{color:inherit!important;text-decoration:inher=
+it!important}
+    #MessageViewBody a{color:inherit;text-decoration:none}
+    p{line-height:inherit}
+    .image_block img+div{display:none}
+    @media (max-width:670px){
+      .row-content{width:100%!important}
+      .stack .column{width:100%;display:block}
+    }
+  </style>
+</head>
+
+<body style=3D"background-color:#151d2b;margin:0;padding:0;-webkit-text-siz=
+e-adjust:none;text-size-adjust:none"><div style=3D"display: none">Tell us w=
+hat you loved, what you didn=E2=80=99t, and how we can improve for next yea=
+r. =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=C2=A0</div>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion">
+  <tbody><tr>
+    <td>
+
+      <!-- Header -->
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"background-color:#151d2b">
+        <tbody><tr>
+          <td align=3D"center" style=3D"padding:20px 0">
+            <img src=3D"https://userimg-bee.customeriomail.com/images/clien=
+t-env-92874/THMlogo-gray_scale.png" width=3D"130" alt=3D"TryHackMe" style=
+=3D"display:block;border:0"/>
+          </td>
+        </tr>
+      </tbody></table>
+
+      <!-- Spacer -->
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation">
+        <tbody><tr><td height=3D"20">=C2=A0</td></tr>
+      </tbody></table>
+
+      <!-- Main Content -->
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation">
+        <tbody><tr>
+          <td align=3D"center">
+
+            <table width=3D"650" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"background-color:#1c2538;border-radius:40px 40px=
+ 0 0;border:2px solid #212c42">
+              <tbody><tr>
+                <td style=3D"
+                  padding:40px;
+                  color:#f9f9fb;
+                  font-family:Inter,-apple-system,BlinkMacSystemFont,&#39;S=
+egoe UI&#39;,Helvetica,Arial,sans-serif;
+                  font-size:16px;
+                  font-weight:400;
+                  line-height:1.45;
+                ">
+
+                  <p style=3D"margin:0 0 20px">
+                    Hi manishreddy.gutha,=20
+                  </p>
+
+                  <p style=3D"margin:0 0 20px">
+                    Advent of Cyber may be over, but we=E2=80=99re already =
+thinking about how to make next year even better. =F0=9F=8E=84
+                  </p>
+
+                  <p style=3D"margin:0 0 20px">
+                    You joined us for 24 days of Advent of Cyber fun, now w=
+e=E2=80=99d love your feedback. =F0=9F=A7=A0
+                  </p>
+
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"margin:0 0 32px">
+</table><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"margin:0 0 32px">
+  <tbody><tr>
+    <td style=3D"
+      background-color:#192235;
+      border-left:5px solid #a3ea2a;
+      border-right:5px solid #a3ea2a;
+      padding:28px 32px;
+      border-radius:20px;
+    ">
+
+      <p style=3D"
+        margin:0 0 18px;
+        font-weight:600;
+        font-size:18px;
+        color:#f9f9fb;
+      ">
+        Your feedback will help us understand:
+      </p>
+
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation">
+        <tbody><tr>
+          <td style=3D"color:#d7dbea;font-size:16px;line-height:1.6;">
+            <p style=3D"margin:0 0 10px;">=E2=96=B8 What worked well (and w=
+hat didn=E2=80=99t)</p>
+            <p style=3D"margin:0 0 10px;">=E2=96=B8 Which topics you enjoye=
+d most</p>
+            <p style=3D"margin:0 0 10px;">=E2=96=B8 How the difficulty felt=
+ across the event</p>
+            <p style=3D"margin:0;">=E2=96=B8 How we can improve Advent of C=
+yber for 2026</p>
+          </td>
+        </tr>
+      </tbody></table>
+
+    </td>
+  </tr>
+</tbody></table>
+
+
+                  <!-- CTA -->
+                  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"margin:0 0 28px">
+                    <tbody><tr>
+                      <td align=3D"center">
+                        <a href=3D"https://e.customeriomail.com/e/c/eyJlbWF=
+pbF9pZCI6ImRnVEsxUVVEQUx6TnVBUzd6YmdFQVp1b05naUd1U2pmYUJLSzRBWDhtQT09IiwiaH=
+JlZiI6Imh0dHBzOi8vZG9jcy5nb29nbGUuY29tL2Zvcm1zL2QvZS8xRkFJcFFMU2VEVVNDa19MS=
+09NNDR2SHpJUlFSa0hCcnQ2X1ZnU0ktT3Y2REExaWZ3bU5ucG9rdy9mb3JtUmVzcG9uc2UiLCJp=
+bnRlcm5hbCI6ImNhZDUwNWI2MDI5YjdkYmNjZGI4MDQiLCJsaW5rX2lkIjoyOTM4NH0/f3f8079=
+5e2ebfeb7cad8f58dc8b49089c3882ceeb8ca7fd4cc9fba3a3df7eaa7" target=3D"_blank=
+" style=3D"
+                             display:inline-block;
+                             background-color:#a3ea2a;
+                             color:#151d2b;
+                             text-decoration:none;
+                             font-family:Inter,-apple-system,BlinkMacSystem=
+Font,&#39;Segoe UI&#39;,Helvetica,Arial,sans-serif;
+                             font-size:16px;
+                             font-weight:600;
+                             padding:14px 22px;
+                             border-radius:12px;
+                             line-height:1;
+                           ">
+                          Take the Advent of Cyber survey
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody></table>
+
+                  <p style=3D"margin:0 0 24px;color:#d7dbea">
+                    The survey takes just a few minutes, and every response=
+ genuinely helps us shape future content for the community.
+                  </p>
+
+                  <p style=3D"margin:0 0 20px">
+                    Thanks again for being part of Advent of Cyber, we coul=
+dn=E2=80=99t do it without learners like you.
+                  </p>
+
+                  <p style=3D"margin:0">
+                    Happy hacking,<br/>
+                    <strong>The TryHackMe Team</strong>
+                  </p>
+
+                </td>
+              </tr>
+            </tbody></table>
+
+          </td>
+        </tr>
+      </tbody></table>
+
+    </td>
+  </tr>
+</tbody></table>
+
+
+<img src=3D"https://e.customeriomail.com/e/o/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQU=
+x6TnVBUzd6YmdFQVp1b05naUd1U2pmYUJLSzRBWDhtQT09In0=3D" style=3D"height: 1px =
+!important; max-height: 1px !important; max-width: 1px !important; width: 1=
+px !important; display: none !important;" alt=3D""/></body></html>
+--a1c7a10c3c408d96c5a2279b60731946d6a3c9c6b68c696a12bdecd72880--

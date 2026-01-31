@@ -1,0 +1,398 @@
+Delivered-To: manishreddy.gutha@gmail.com
+Received: by 2002:a17:504:2c22:b0:1c77:f0f4:e55b with SMTP id a2csp511784njr;
+        Wed, 7 Jan 2026 14:57:48 -0800 (PST)
+X-Received: by 2002:a05:6300:210d:b0:366:14af:9bc1 with SMTP id adf61e73a8af0-3898fa14c4bmr3444898637.75.1767826668498;
+        Wed, 07 Jan 2026 14:57:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1767826668; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gU7iC6wGwFYjPtHFxL0f1aSvYICckFdWf8frY7HgsQhJ9O75s2U/FquEwyPQSBOlgd
+         SXeEWcYz+6PPaSwwc8vjcFX22kXE5dr7MnQuct/5JPqc3mlvzBbAc1CnZdV3dRJ9tiVx
+         OegCbkoEN0Q+pnHujlba5gw+zE13FE3/23gLpg6mrdR4An6MyN1FrijDVrZLj57BfZg/
+         qqj57zhzuVxEAPkf0VkELQA8IVhCUmhHfVctfHvd4JtP87OlxsPAUNJmedjf0FAIhVbC
+         JjQhjALxMG6SzckjuAMaKEp3cz1z1go9B0ly+qXdwBQbMQqe0/ntja2iXPZCoA/wxF3X
+         lELg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:message-id:gmsai:feedback-id:date:mime-version
+         :dkim-signature;
+        bh=JEP2QdZYDLnO/g6sJ9Na6RjoOtBY9+N5XIIJWQ6+Zps=;
+        fh=rUssluQMzUIzH11Zaq7P+yk1dveFmc6d8QXLykgI95k=;
+        b=iOd+fArGgjRyQmWcZyxBoilBYkmxu3uw+vyoUtGBXPyC6g7HewDH3mUOY07UojCBEh
+         qtrxnJXw8TRkKB9FkZ/tOU/MtSVwmYKKsxrup41DbnbfcEiCD9ubIJtC/ncMwdWrxmlQ
+         3Qirxjxf2aOKmSMTLjUqGG6OxrRJKSm7WW/low4pS5Q63nyLa/9xeOVTTVGMFQWTvdP8
+         kA5QDbnYRKEnsvueXWnO25ACAOZy+He+zr8oYhvIHEB/HB+ZAFnOQuhvAkno/f7WexrW
+         Q9LtZDZMwJVtzQZ2DCbU3Jd0pOJFyG3HI6SoXXS+33r5F2NAuBecKuoErY1nqhYSOae0
+         Q7Ww==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=ZgpNkJgE;
+       spf=pass (google.com: domain of 37orearikaimnvvnslwsh5-uvylws5nvvnsl.jvt@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=37OReaRIKAIMnvvnslwsh5-uvylws5nvvnsl.jvt@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <37OReaRIKAIMnvvnslwsh5-uvylws5nvvnsl.jvt@scoutcamp.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 98e67ed59e1d1-34f5f847716sor3333923a91.4.2026.01.07.14.57.48
+        for <manishreddy.gutha@gmail.com>
+        (Google Transport Security);
+        Wed, 07 Jan 2026 14:57:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of 37orearikaimnvvnslwsh5-uvylws5nvvnsl.jvt@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=ZgpNkJgE;
+       spf=pass (google.com: domain of 37orearikaimnvvnslwsh5-uvylws5nvvnsl.jvt@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=37OReaRIKAIMnvvnslwsh5-uvylws5nvvnsl.jvt@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767826668; x=1768431468; dara=google.com;
+        h=to:from:subject:message-id:gmsai:feedback-id:date:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=JEP2QdZYDLnO/g6sJ9Na6RjoOtBY9+N5XIIJWQ6+Zps=;
+        b=ZgpNkJgEZj+zpld4oPvDbT1khlZXl/yUB/95BVJmwIaSwwWZ8LEevEXcLzraFHOlKW
+         7rJLM1vZ4ocFOo87E7zDFAiXgW14oWO5cT79k31tsof8lzjCdtwb90fnQySqbyATtHfD
+         hOLZraKa/U6qT2LtCMtA4+Rxz8T8XI4RmjEXVuoQeDKbyPq9qTQh2y/qNk65VBUsbxKo
+         TxHU5kw45AQd5vBuE4oYy3mzKAa/0LyxZ7rxtugv5fAEp7BUg8wGgYXevsYWCBWyQfbV
+         nJZEn1r09vG9Ewfr9HRCrsNjJk35RnEyuCkOEzhp3Bmh36MbsOsIyapSqJjEslqj8ffX
+         6atw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767826668; x=1768431468;
+        h=to:from:subject:message-id:gmsai:feedback-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JEP2QdZYDLnO/g6sJ9Na6RjoOtBY9+N5XIIJWQ6+Zps=;
+        b=ReDwLocMqHPLxRthsVVg2D7HRLwmSKut2ZUKOQI6OCK+1mNfDd3Y6pATPE+Ck11gL8
+         9cCrb1/HK7HX/DPB0O5cODnJoVW6XF5TlV8l7SReArBqqrASjKPBMf1LFDwQpRLPH05R
+         lZARwSss9jjbiHipTddMcUtvzar5wJjVJvkmUGrhMi+QkMUvKtmgGQJhEMD7Mn1muHMf
+         fxdFdS5TFCVGdVHzbyT1fxpQhmBhAAAa2n0x8LOIJz8XarCoXnKKwByEF2dgtUOWZjrw
+         8qS1kvZLEfW9PoPPgDwPGndXUJwUWrZvmRuPr17Ozyo0NxKlK+9SMu5GR5Zm5N+9sGOk
+         SR2Q==
+X-Gm-Message-State: AOJu0YyGw6d/8cbiA6jrEfg4stRFa8VPszWE/A/9MHP6QDrK+T7KkVus
+	LcjvPRxoOBOCW7PeJVRi2beTQQmWF5Z07bEKXYoCf/XK5qOiodN6UfMNmL/P
+X-Google-Smtp-Source: AGHT+IH+8XBqAaD4yw22AVU2iZmQHKwwn+vtJ/DU2tLCGL4PKK8Ng8E9jgrYVtYs+zrXaRp16PTOtJ0=
+MIME-Version: 1.0
+X-Received: by 2002:a17:90b:5786:b0:34a:47d0:9a82 with SMTP id
+ 98e67ed59e1d1-34f68ca474cmr3608436a91.23.1767826668029; Wed, 07 Jan 2026
+ 14:57:48 -0800 (PST)
+Date: Wed, 07 Jan 2026 14:57:48 -0800
+Feedback-ID: P7ccacec2ee8209f6a2a14a20328c6e7da0b269e045968cfd60d82bef37b180d4-839aa262c99212b215198a5af4b08157c5245602b5067e2cb3e7636d4b1d85c5:C9844112989:M111087956-en:gamma
+gmsai: true
+X-Notifications: 72a7634146660000
+X-Notifications-Bounce-Info: Ae2mSnx40xVCq1gMeH8HJqve5fXrSsKb-2ZqvRxQbyTbwzPbClXY0fwEmaGGoEp9KhVMhmOmppGXf5VtjlOzDxaZhd3VAS2nhHiM6leRmCj-vYovmXj7IQnEUQol_6_KTQehB5tl5d9oPUh3eCcAwxYezrXtFlU9eTq8wFzwf2ITKCCj5tcq6cTQTudhfCBmDaz48ZEINFLLFwtP58WMOjNkmXvrjCw1b1GXe7yW8Yx8Ucq88bTgXSFQ0Y4L87yWV7diHgvgsafGzcygVHqhVb-cYkS9Qwu7OC72bVA6gR7BY49lK5d2LroRBAAc0g5jJBWTYbNMFLMTcPu_M9jjatHC7RK7ZtzzKQHvGDeYlV6ehBBfkE711PapdbiU9AIMEhIy_8ezYLfeemVHDzF6YbWMrknQQJ3RJXFDjIWBQc4s5gUz0ZGSxsZ1__J8A_JGxRGD9oXlr5nrp_ldlM1Tu3-A2hTgaYV3Q6bGqF14msWniP-cNW2ayDSQeaEkjbCXUAx7Z7t8sUHrg3gmPeF_Qymu_Q8wvmETd1DbC0lY8QggmRxjtvnjspTqj22SdIorDAuTw0eUxzrWtX2g1wNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <e5a7b308bb53f06a0cd74e84caf30b841bcd67fa-20382279-987377478@google.com>
+Subject: Updates to how privacy settings work on Play
+From: Google Play <googleplay-noreply@google.com>
+To: manishreddy.gutha@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000009286220647d4384a"
+
+--0000000000009286220647d4384a
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+DQoNCg0KDQoNCg0KDQoNCg0KDQpIZWxsbyBtYW5pc2gsDQoNCldl4oCZdmUgdXBkYXRlZCBzZXR0
+aW5ncyB0aGF0IG1hbmFnZSBwZXJzb25hbGl6YXRpb24gYW5kIGFjdGl2aXR5IGhpc3Rvcnkgb24g
+IA0KUGxheS4gWW914oCZbGwgaGF2ZSBkZWRpY2F0ZWQgY29udHJvbHMgZm9yIHBlcnNvbmFsaXph
+dGlvbiBvbiBQbGF5IGFuZCBmb3IgIA0Kc2F2aW5nIGFjdGl2aXR5IGluIHlvdXIgR29vZ2xlIEFj
+Y291bnTigJlzIFBsYXkgSGlzdG9yeSwgYW5kIHRoZXNlIHNldHRpbmdzICANCndpbGwgYmUgZWFz
+aWx5IGFjY2Vzc2libGUgaW4gdGhlIEdvb2dsZSBQbGF5IG1lbnUuDQoNCkluIHRoZSBwYXN0LCBw
+ZXJzb25hbGl6YXRpb24gYW5kIGhpc3Rvcnkgb24gUGxheSB3ZXJlIG1hbmFnZWQgYnkgV2ViICYg
+QXBwICANCkFjdGl2aXR5IChXQUEpIHNldHRpbmdzIGluIHlvdXIgR29vZ2xlIEFjY291bnQuIEdv
+aW5nIGZvcndhcmQsIFdBQSB3aWxsIG5vICANCmxvbmdlciBjb250cm9sIFBsYXkgcGVyc29uYWxp
+emF0aW9uIGFuZCBQbGF5IEhpc3RvcnkuIEluc3RlYWQsIHlvdeKAmWxsIGJlICANCmFibGUgdG8g
+bWFuYWdlIHRob3NlIHNldHRpbmdzIGRpcmVjdGx5IG9uIFBsYXksIGFuZCB5b3XigJlsbCBzZWUg
+dGhpcyBjaGFuZ2UgIA0KaW4geW91ciBhY2NvdW50IGluIHRoZSBuZXh0IGZldyBkYXlzLiBMZWFy
+biBtb3JlIGFib3V0IFBsYXkgcGVyc29uYWxpemF0aW9uICANCmFuZCBQbGF5IEhpc3RvcnkgIA0K
+PGh0dHA6Ly9zdXBwb3J0Lmdvb2dsZS5jb20vZ29vZ2xlcGxheT9wPXBlcnNvbmFsaXplX3BsYXlf
+bWlncmF0aW9uPg0KDQpXaGVuIHRoZSB0cmFuc2l0aW9uIGhhcHBlbnMgZm9yIHlvdXIgYWNjb3Vu
+dCwgeW91ciBQbGF5IHNldHRpbmdzIHdpbGwgYmUgIA0KYmFzZWQgb24gdGhlIG1vc3QgcmVjZW50
+IGNob2ljZSB5b3UgbWFkZSBpbiBXQUEsIHNvIHlvdXIgZXhwZXJpZW5jZSB3aWxsICANCnN0YXkg
+dGhlIHNhbWUuIElmIHlvdSBoYXZlIFdBQSB0dXJuZWQgb24gZHVyaW5nIHRoZSB0cmFuc2l0aW9u
+LCB3aGljaCBpcyAgDQpoYXBwZW5pbmcgb3ZlciB0aGUgbmV4dCBmZXcgZGF5cywgdGhlbiB5b3Vy
+IFBsYXkgcGVyc29uYWxpemF0aW9uIGFuZCBQbGF5ICANCkhpc3Rvcnkgc2V0dGluZ3Mgd2lsbCBi
+ZSBvbiwgYW5kIGlmIFdBQSBpcyBvZmYsIHRoZW4gUGxheSBwZXJzb25hbGl6YXRpb24gIA0KYW5k
+IFBsYXkgSGlzdG9yeSB3aWxsIGJlIG9mZi4gQXMgYmVmb3JlLCB5b3XigJlsbCBiZSBhYmxlIHRv
+IGNob29zZSBob3cgbG9uZyAgDQp5b3VyIGFjdGl2aXR5IGlzIHNhdmVkIGluIHlvdXIgUGxheSBI
+aXN0b3J5IGFuZCBpZiB5b3Ugd2FudCB0byBkZWxldGUgaXQgIA0KZnJvbSBQbGF5IEhpc3Rvcnkg
+bWFudWFsbHkgb3IgYXV0b21hdGljYWxseS4NCg0KQWZ0ZXIgdGhlIHRyYW5zaXRpb24gaXMgY29t
+cGxldGUsIFdBQSBhbmQgUGxheSBzZXR0aW5ncyB3aWxsIGJlIHNlcGFyYXRlLCAgDQphbmQgY2hh
+bmdlcyB0byBvbmUgd2lsbCBubyBsb25nZXIgYWZmZWN0IHRoZSBvdGhlci4gWW91IGNhbiB2aWV3
+IGFuZCBjaGFuZ2UgIA0KeW91ciBQbGF5IHByaXZhY3kgc2V0dGluZ3MgaW4gUGVyc29uYWxpemF0
+aW9uIGluIFBsYXkgIA0KPGh0dHBzOi8vbXlhY3Rpdml0eS5nb29nbGUuY29tL3Byb2R1Y3QvZ29v
+Z2xlX3BsYXkvcGVyc29uYWxpemF0aW9uPiBhdCBhbnkgIA0KdGltZS4gTGVhcm4gbW9yZSBhYm91
+dCB0aGUgdHJhbnNpdGlvbiBhbmQgaG93IGl0IGFmZmVjdHMgeW91ciBzZXR0aW5ncyAgDQo8aHR0
+cDovL3N1cHBvcnQuZ29vZ2xlLmNvbS9nb29nbGVwbGF5P3A9cGVyc29uYWxpemVfcGxheV9taWdy
+YXRpb24+DQoNClRoYW5rcyBmb3IgdXNpbmcgR29vZ2xlIFBsYXkhDQoNClNob3VsZCB5b3UgaGF2
+ZSBhbnkgcXVlc3Rpb25zIHBsZWFzZSB2aXNpdCBvdXIgSGVscCBDZW50ZXIgIA0KPGh0dHBzOi8v
+bm90aWZpY2F0aW9ucy5nb29nbGUuY29tL2cvcC9BTmlhbzVvUlJxMGVBNTBiRVctOUQ2Tjh1cGZl
+VzBIeFY5d0E4bE9EczdhYjd5WGNFR2RYNHc5TFpsYjJucXJBX0FPZnE1c1RZOXVPckxJb194d0ZN
+ZDBqd1MtWkpqZ241bUMzMXo0NXlTcWdBeHJVcXFLbVpmZmpWbktnRFRIUDBuOThRRTlwZmRvc0NE
+dWc5b0xsNnpHclRXcDFZbUNSYkYwOGRTcU1BN1hoNVZOc3dOVG9TS2Rna3lPXzdYTVFRQlpmYlNT
+OE9ELVBxMVpEVHN3QlB2TVNaaHowZlR5dHZTYVU4QjlDdXF2N0lXVW5RcG5EZzl3aXpuM2dFZGtm
+eThzMTlUejQ+ICANCm9yIGdldCBpbiB0b3VjaCAgDQo8aHR0cHM6Ly9ub3RpZmljYXRpb25zLmdv
+b2dsZS5jb20vZy9wL0FOaWFvNXBwUmpTeVBFbnpPLVFLaWJWbEdFN1ZsUW5PcHh3LUJsQzByUTVS
+RkdQcnV4elZPZXAwbVk2azVQWkdKdFFadzV3X016aHhub1RLd2ZEaHpYLW9EWER0anVTaG4xRWxk
+QkprWEkzLXlzMmE0MVlvZEIwVVhWYllfVjFHNGhxOVBHdjlJMmlOalEtbWdESXBQUHBDOUx6cUlY
+NUttTXpQZ2NlT0poWm5jb0FtZDJ3V3lyMWx3VGpJaVA3SFJ1ZUlvOEdBMDJxUGlRQUpEUmRVQ3Jx
+aDBoOGdGamUyR2EzblpGdE1MQ0N6bGlqN1dOZG9ZRURROTRCZkZJQWg+Lg0KDQooYykgMjAyNiBH
+b29nbGUgTExDLCAxNjAwIEFtcGhpdGhlYXRyZSBQYXJrd2F5LCBNb3VudGFpbiBWaWV3LCBDQSA5
+NDA0MywgVVNBDQoNCllvdSBoYXZlIHJlY2VpdmVkIHRoaXMgbWFuZGF0b3J5IGVtYWlsIHNlcnZp
+Y2UgYW5ub3VuY2VtZW50IHRvIHVwZGF0ZSB5b3UgIA0KYWJvdXQgaW1wb3J0YW50IGNoYW5nZXMg
+dG8geW91ciBQbGF5IHByb2R1Y3Qgb3IgYWNjb3VudC4NCg0KUGxlYXNlIGRvIG5vdCByZXBseSB0
+byB0aGlzIGVtYWlsLCBhcyB3ZSBhcmUgdW5hYmxlIHRvIHJlc3BvbmQgZnJvbSB0aGlzICANCmVt
+YWlsIGFkZHJlc3MuIElmIHlvdSBuZWVkIHN1cHBvcnQsIHBsZWFzZSB2aXNpdCB0aGUgR29vZ2xl
+IFBsYXkgSGVscCAgDQpDZW50ZXIgPGh0dHBzOi8vc3VwcG9ydC5nb29nbGUuY29tL2dvb2dsZXBs
+YXk+Lg0K
+--0000000000009286220647d4384a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"-->
+<html xmlns=3Dhttps://www.w3.org/1999/xhtml lang=3Den>
+<head>
+<title>Learn about changes to privacy settings in Play</title>
+<meta http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<!--[if !mso]><!-->
+<meta http-equiv=3DX-UA-Compatible content=3DIE=3Dedge>
+<!--<![endif]-->
+<meta name=3Dviewport content=3D"width=3Ddevice-width, initial-scale=3D1.0"=
+>
+<meta name=3Drobots content=3D"no index">
+<!--[if mso | ie]>
+<style>
+.outlookpd_20{padding:0 20px 25px !important;}
+.border-class{border: 1px solid #E8EAED !important;}
+</style>
+<![endif]-->
+<style>
+@media screen and (max-width: 640px) {
+.table-main-gmail { /* Forces Gmail to display Desktop view */
+width: 100% !important;
+}
+.pd_10{
+padding: 10px 10px 0px !important;
+}
+.pl-20{padding-left: 20px !important;}
+.pl-r-20{
+padding-left: 20px !important;
+padding-right: 20px !important;
+}
+}
+</style>
+</head>
+<body style=3D"margin: 0 auto; padding:0px;">
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0 width=
+=3D100% align=3Dcenter>
+<tr>
+<td style=3D"padding-top: 20px;" valign=3Dtop align=3Dcenter class=3Dpd_10>
+<!--Main content start-->
+<table width=3D100% role=3Dpresentation border=3D0 cellpadding=3D0 cellspac=
+ing=3D0 align=3Dcenter>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0 align=
+=3Dcenter>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"padding-bottom: 30px;">
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0 width=
+=3D640 align=3Dcenter style=3D"width: 100%; max-width: 640px;">
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"640" >
+<![endif]-->
+<!-- Header logo -->
+<tr>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0 width=
+=3D162>
+<tr>
+<td aria-hidden=3Dtrue align=3Dleft valign=3Dtop class=3Dpl-20 width=3D152 =
+height=3Dauto style=3D"padding-top: 0px; padding-bottom: 20px; padding-left=
+: 40px;">
+<a href=3D# target=3D_blank style=3D"text-decoration: none;">
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/google-play-commerce-logo-=
+transparent-w646px-h128px-2x.png style=3D"display: block;" width=3D162 heig=
+ht=3Dauto class=3Dlogo114 alt=3D"" title=3D"Google Play">
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Header logo -->
+<!-- Body of email -->
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"background-color: #ffffff; border: 2=
+px solid #E8EAED; border-radius: 8px;">
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0 width=
+=3D100% align=3Dcenter>
+<!--body start-->
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpl-r-20 style=3D"padding: 40px 30px 3=
+4px 30px;">
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0 width=
+=3D100% align=3Dcenter>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-size: 14px; line-height: 24px; =
+font-family: Roboto, Helvetica, Arial, sans-serif; color:#414347; ">
+Hello manish,
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-size: 14px; line-height: 24px; =
+font-family: Roboto, Helvetica, Arial, sans-serif; color:#414347; padding-t=
+op: 15px;">
+We=E2=80=99ve updated settings that manage personalization and activity his=
+tory on Play. You=E2=80=99ll have dedicated controls for personalization on=
+ Play and for saving activity in your Google Account=E2=80=99s Play History=
+, and these settings will be easily accessible in the Google Play menu.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-size: 14px; line-height: 24px; =
+font-family: Roboto, Helvetica, Arial, sans-serif; color:#414347;padding-to=
+p: 15px;">
+In the past, personalization and history on Play were managed by Web &amp; =
+App Activity (WAA) settings in your Google Account. Going forward, WAA will=
+ no longer control Play personalization and Play History. Instead, you=E2=
+=80=99ll be able to manage those settings directly on Play, and you=E2=80=
+=99ll see this change in your account in the next few days. <a target=3D_bl=
+ank style=3D"color: #1a73e8;" href=3Dhttp://support.google.com/googleplay?p=
+=3Dpersonalize_play_migration>Learn more about Play personalization and Pla=
+y History</a>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-size: 14px; line-height: 24px; =
+font-family: Roboto, Helvetica, Arial, sans-serif; color:#414347;padding-to=
+p: 15px;">
+When the transition happens for your account, your Play settings will be ba=
+sed on the most recent choice you made in WAA, so your experience will stay=
+ the same. If you have WAA turned on during the transition, which is happen=
+ing over the next few days, then your Play personalization and Play History=
+ settings will be on, and if WAA is off, then Play personalization and Play=
+ History will be off. As before, you=E2=80=99ll be able to choose how long =
+your activity is saved in your Play History and if you want to delete it fr=
+om Play History manually or automatically.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-size: 14px; line-height: 24px; =
+font-family: Roboto, Helvetica, Arial, sans-serif; color:#414347;padding-to=
+p: 15px;">
+After the transition is complete, WAA and Play settings will be separate, a=
+nd changes to one will no longer affect the other. You can view and change =
+your Play privacy settings in <a target=3D_blank style=3D"color: #1a73e8;" =
+href=3Dhttps://myactivity.google.com/product/google_play/personalization>Pe=
+rsonalization in Play</a> at any time. <a target=3D_blank style=3D"color: #=
+1a73e8;" href=3Dhttp://support.google.com/googleplay?p=3Dpersonalize_play_m=
+igration>Learn more about the transition and how it affects your settings</=
+a>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-size: 14px; line-height: 24px; =
+font-family: Roboto, Helvetica, Arial, sans-serif; color:#414347;padding-to=
+p: 15px;">
+Thanks for using Google Play!
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-size: 14px; line-height: 24px; =
+font-family: Roboto, Helvetica, Arial, sans-serif; color:#414347; padding-t=
+op: 15px; padding-bottom: 30px;">
+Should you have any questions please visit our <a target=3D_blank style=3D"=
+color: #1a73e8;" href=3Dhttps://notifications.google.com/g/p/ANiao5oRRq0eA5=
+0bEW-9D6N8upfeW0HxV9wA8lODs7ab7yXcEGdX4w9LZlb2nqrA_AOfq5sTY9uOrLIo_xwFMd0jw=
+S-ZJjgn5mC31z45ySqgAxrUqqKmZffjVnKgDTHP0n98QE9pfdosCDug9oLl6zGrTWp1YmCRbF08=
+dSqMA7Xh5VNswNToSKdgkyO_7XMQQBZfbSS8OD-Pq1ZDTswBPvMSZhz0fTytvSaU8B9Cuqv7IWU=
+nQpnDg9wizn3gEdkfy8s19Tz4>Help Center</a> or get in <a target=3D_blank styl=
+e=3D"color: #1a73e8;" href=3Dhttps://notifications.google.com/g/p/ANiao5ppR=
+jSyPEnzO-QKibVlGE7VlQnOpxw-BlC0rQ5RFGPruxzVOep0mY6k5PZGJtQZw5w_MzhxnoTKwfDh=
+zX-oDXDtjuShn1EldBJkXI3-ys2a41YodB0UXVbY_V1G4hq9PGv9I2iNjQ-mgDIpPPpC9LzqIX5=
+KmMzPgceOJhZncoAmd2wWyr1lwTjIiP7HRueIo8GA02qPiQAJDRdUCrqh0h8gFje2Ga3nZFtMLC=
+Czlij7WNdoYEDQ94BfFIAh>touch</a><span aria-hidden=3Dtrue>.</span>
+</td>
+</tr>
+<!-- Footer -->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table bgcolor=3D#F8F9FA width=3D576 role=3Dpresentation border=3D0 cellpad=
+ding=3D0 cellspacing=3D0 align=3Dcenter style=3D"background-color: #F8F9FA;=
+" class=3Dtable-main-gmail>
+<tr>
+<td align=3Dcenter valign=3Dtop class=3Dborder-class style=3D"border: 1px s=
+olid #E8EAED;">
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0 width=
+=3D100% align=3Dcenter>
+<tr>
+<td aria-hidden=3Dtrue align=3Dcenter valign=3Dtop style=3D"padding-top: 25=
+px;">
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/20136643-google-footer-log=
+o-grey.png width=3D80 height=3Dauto>
+</td>
+</tr>
+<tr>
+<td dir=3Dltr role=3Dtext style=3D"font-size: 14px; font-family: Roboto, He=
+lvetica, Arial, sans-serif; line-height: 22px; letter-spacing: 0.25px; colo=
+r: #5F6368; padding:25px 20px 25px;" align=3Dcenter>
+<a role=3Dtext href=3D# style=3D"text-decoration: none; pointer-events: non=
+e; cursor: default; color: #5F6368;">
+=C2=A9 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043,=
+ USA
+</a>
+</td>
+</tr>
+<tr>
+<td style=3D"font-size: 14px; font-family: Roboto, Helvetica, Arial, sans-s=
+erif; line-height: 22px; letter-spacing: 0.25px; color: #5F6368; padding:0 =
+20px 25px;" align=3Dcenter class=3Doutlookpd_20>
+You have received this mandatory email service announcement to update you a=
+bout important changes to your Play product or account.
+</td>
+</tr>
+<tr>
+<td style=3D"font-size: 14px; font-family: Roboto, Helvetica, Arial, sans-s=
+erif; line-height: 22px; letter-spacing: 0.25px; color: #5F6368; padding:0 =
+20px 25px;" align=3Dcenter class=3Doutlookpd_20>
+Please do not reply to this email, as we are unable to respond from this em=
+ail address. If you need support, please visit the <a target=3D_blank style=
+=3D"color: #1967D2;" href=3Dhttps://support.google.com/googleplay>Google Pl=
+ay Help Center</a><span aria-hidden=3Dtrue>.</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!--Main content end-->
+</td>
+</tr>
+</table>
+</body>
+</html>
+--0000000000009286220647d4384a--

