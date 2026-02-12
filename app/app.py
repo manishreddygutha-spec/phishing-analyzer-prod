@@ -11,6 +11,8 @@ import streamlit as st
 
 from phishing_analyzer.orchestration.prefect_flow import phishing_flow
 import phishing_analyzer.logging_config
+from phishing_analyzer.health import run_health_check
+
 # ------------------------------
 # MUST be first Streamlit call
 # ------------------------------
@@ -50,6 +52,9 @@ st.sidebar.checkbox(
 st.sidebar.markdown("---")
 st.sidebar.info("Close browser tab + stop terminal to exit.")
 
+if st.sidebar.button("Run System Health Check"):
+    health = run_health_check()
+    st.sidebar.json(health)
 # ------------------------------
 # Header
 # ------------------------------

@@ -8,6 +8,16 @@ A **SOC-grade phishing detection system** that analyzes raw `.eml` email files u
 Designed to **simulate real-world enterprise email security pipelines**.
 
 ---
+## 🌍 Real-World Cybersecurity Impact
+
+- This system demonstrates how multi-agent AI can improve phishing detection in real-world security environments.
+- Helps security teams automatically analyze suspicious emails
+- Reduces manual phishing investigation time
+- Provides explainable phishing risk scoring
+- Allows human analysts to validate decisions before blocking emails
+- The architecture reflects how modern Security Operations Centers (SOC) combine automated detection, AI reasoning, and human oversight to prevent phishing attacks safely.
+
+---
 
 ## ✨ Key Highlights
 
@@ -33,10 +43,12 @@ The system processes emails using **independent detection agents**, then correla
 
 ## 📂 Project Structure
 
+```text
 phishing-analyzer-prod/
 │
 ├── __init__.py
 ├── logging_config.py
+├── health.py
 ├── app/
 │   └── app.py                  # Streamlit UI
 │
@@ -61,13 +73,14 @@ phishing-analyzer-prod/
 │   │
 │   ├── config/
 │   │   └── risk_config.py
-│   │ 
-│   └── safety/
+│   │
+│   ├── safety/
 │   │   └── guardrails.py
 │   │
 │   └── utils/
+│       ├── error_handler.py
 │       └── resilience.py
-│   
+│
 ├── samples/
 │   ├── dhl_delivery_failure_phish.eml
 │   ├── microsoft_password_reset_phish.eml
@@ -85,6 +98,7 @@ phishing-analyzer-prod/
 ├── .env
 ├── requirements.txt
 └── pyproject.toml
+```
 
 ---
 
@@ -182,6 +196,14 @@ No agent can directly allow or block an email on its own.
 | 70–100     | High     | Quarantine |
 
 ---
+## ⚙️ Prerequisites
+
+- Python 3.11+
+- pip package manager
+- Internet connection (for DNS & WHOIS lookups)
+- Optional: CrewAI for explanation agent
+
+---
 
 ## 🧪 Demo Mode vs Real-World Mode
 
@@ -236,51 +258,87 @@ No agent can directly allow or block an email on its own.
     }
   }
 }
-
+```
 ---
 
 ## 🐍 Python Virtual Environment Setup
 
 ### 1️⃣ Create virtual environment
 
-'''bash
+```bash
 python -m venv venv
-'''
+```
+
 ### 2️⃣ Activate virtual environment
 
 #### Windows
 
-'''bash
+```bash
 venv\Scripts\activate
-'''
+```
 
 #### macOS / Linux
 
-'''bash
+```bash
 source venv/bin/activate
-'''
+```
 ### 3️⃣ Install dependencies
 
-'''bash
+```bash
 pip install -r requirements.txt
-'''
+```
 
 ---
 
 ## ▶️ Run the Application
 
-'''bash
+```bash
 streamlit run app/app.py
-'''
+```
 Upload a .eml file and view the phishing analysis.
 ---
 
-## 🧪 Run Tests
+## 🧪 Testing Strategy
 
-'''bash
+This system includes a comprehensive testing suite to ensure production reliability.
+
+### Unit Tests
+Validate individual components:
+- Email ingestion
+- Header analysis
+- Content analysis
+- Domain intelligence
+- Risk scoring
+
+### Integration Tests
+Verify communication between agents and tools:
+- Detection → Risk scoring pipeline
+- Multi-agent orchestration flow
+
+### End-to-End Tests
+Simulate complete phishing analysis workflows using real `.eml` samples.
+
+```bash
 pytest --cov=phishing_analyzer
-'''
+```
 ✔ Minimum 70% test coverage enforced
+---
+## 🧰 Troubleshooting
+
+**CrewAI explanation not generated**  
+→ CrewAI not installed. Install or run deterministic mode.
+
+**DNS/WHOIS lookup failure**  
+→ Check internet connectivity.
+
+**Timeout during execution**  
+→ Retry execution; timeout handling is built-in.
+
+**Dependency errors**  
+```bash
+pip install -r requirements.txt
+pip install -e .
+```
 ---
 ## 🛠 Resilience & Reliability
 
@@ -294,6 +352,14 @@ The system is designed to fail safely:
 
 This ensures consistent behavior in real SOC environments.
 ---
+## 🛡 Error Handling
+
+- Output filtering and redaction
+- Graceful fallback when external tools fail
+- Timeout handling to prevent stalled workflows
+- Retry-safe architecture for agent execution
+- Structured logging for debugging and traceability
+---
 
 ## 📋 Logging & Observability
 
@@ -303,6 +369,10 @@ This ensures consistent behavior in real SOC environments.
   - External tool failures
   - Correlation triggers
 - Enables debugging, auditing, and future SIEM integration
+- Structured logging captures agent execution and failures
+- Logs help debugging and traceability
+- Prevents silent workflow failures
+- Supports production-style monitoring
 ---
 
 ## 🔒 Security & Safety Guardrails
@@ -365,3 +435,24 @@ No single failure causes the system to crash or silently skip analysis.
 - Attachment sandboxing
 - SIEM / SOAR integration
 - Batch email ingestion
+
+---
+## 🛠 Maintenance & Support Status
+
+This project is an actively maintained production-style prototype developed as part of the ReadyTensor Agentic AI in Production program.
+
+Maintenance scope:
+- Compatible with Python 3.11+
+- Regular dependency and security updates when required
+- Modular architecture allows easy extension and updates
+
+Support:
+This repository is maintained for educational and production experimentation purposes.  
+Issues and improvements can be reported via GitHub Issues.
+
+---
+## 📜 License
+
+This project is released under the MIT License.
+
+You are free to use, modify, and distribute this software for educational and commercial purposes with proper attribution.
