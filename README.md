@@ -44,7 +44,6 @@ The system processes emails using **independent detection agents**, then correla
 ## 📂 Project Structure
 
 ```text
-```text
 phishing-analyzer-prod/
 │
 ├── __init__.py
@@ -102,7 +101,6 @@ phishing-analyzer-prod/
 ├── .env
 ├── requirements.txt
 └── pyproject.toml
-```
 ```
 
 ---
@@ -271,10 +269,7 @@ No agent can directly allow or block an email on its own.
 ### 1️⃣ Create virtual environment
 
 ```bash
-```bash
 python -m venv venv
-```
-
 ```
 
 ### 2️⃣ Activate virtual environment
@@ -282,24 +277,19 @@ python -m venv venv
 #### Windows
 
 ```bash
-```bash
 venv\Scripts\activate
-```
 ```
 
 #### macOS / Linux
 
 ```bash
-```bash
 source venv/bin/activate
 ```
-```
+
 ### 3️⃣ Install dependencies
 
 ```bash
-```bash
 pip install -r requirements.txt
-```
 ```
 
 ---
@@ -307,10 +297,9 @@ pip install -r requirements.txt
 ## ▶️ Run the Application
 
 ```bash
-```bash
 streamlit run app/app.py
 ```
-```
+
 Upload a .eml file and view the phishing analysis.
 ---
 
@@ -336,7 +325,6 @@ Simulate complete phishing analysis workflows using real `.eml` samples.
 
 ```bash
 pytest --cov=phishing_analyzer
-```
 ```
 ✔ Minimum 70% test coverage enforced
 ---
