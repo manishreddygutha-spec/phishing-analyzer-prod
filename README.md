@@ -366,11 +366,11 @@ This ensures consistent behavior in real SOC environments.
 ---
 ## 🛡 Error Handling
 
-- Output filtering and redaction
-- Graceful fallback when external tools fail
-- Timeout handling to prevent stalled workflows
-- Retry-safe architecture for agent execution
-- Structured logging for debugging and traceability
+- Graceful fallback when external tools fail  
+- Timeout handling to prevent stalled workflows  
+- Retry-safe execution for external dependencies  
+- Structured error logging for traceability  
+
 ---
 
 ## 📋 Logging & Observability
@@ -385,6 +385,7 @@ This ensures consistent behavior in real SOC environments.
 - Logs help debugging and traceability
 - Prevents silent workflow failures
 - Supports production-style monitoring
+- Built-in system health check for runtime readiness verification
 ---
 
 ## 🔒 Security & Safety Guardrails
@@ -415,7 +416,7 @@ This prevents:
 
 ## 🧱 Graceful Degradation
 
-- The system is designed to continue operating even when optional components fail:
+The system is designed to continue operating even when optional components fail:
 - VirusTotal unavailable → system falls back to heuristic analysis
 - WHOIS lookup fails → correlation still triggers
 - Individual agent failure → overall pipeline continues
