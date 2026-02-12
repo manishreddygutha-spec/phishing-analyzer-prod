@@ -47,60 +47,59 @@ The system processes emails using **independent detection agents**, then correla
 phishing-analyzer-prod/
 │
 ├── __init__.py
-├── logging_config.py
-├── health.py
+├── logging_config.py            # Centralized production logging configuration
+├── health.py                    # System health check & monitoring utility
+│
 ├── app/
-│   └── app.py                  # Streamlit UI
+│   └── app.py                   # Streamlit UI for interactive phishing analysis
 │
 ├── phishing_analyzer/
-│   ├── agents/
-│   │   ├── ingestion.py
-│   │   ├── header_agent.py
-│   │   ├── content_agent.py
-│   │   ├── url_agent.py
-│   │   ├── domain_agent.py
-│   │   ├── attachment_agent.py
-│   │   ├── risk_agent.py
-│   │   └── reporter_agent.py
+│   ├── agents/                  # Core multi-agent detection system
+│   │   ├── ingestion.py         # Email ingestion agent
+│   │   ├── header_agent.py      # Header analysis agent
+│   │   ├── content_agent.py     # Email content analysis agent
+│   │   ├── url_agent.py         # URL analysis agent
+│   │   ├── domain_agent.py      # Domain intelligence agent
+│   │   ├── attachment_agent.py  # Attachment analysis agent
+│   │   ├── risk_agent.py        # Risk scoring & decision agent
+│   │   └── reporter_agent.py    # Final report generation agent
 │   │
 │   ├── orchestration/
-│   │   └── prefect_flow.py
+│   │   └── prefect_flow.py      # Prefect workflow orchestration
 │   │
-│   ├── tools/
+│   ├── tools/                   # External analysis tools
 │   │   ├── url_tool.py
 │   │   ├── attachment_tool.py
 │   │   └── virustotal_tool.py
 │   │
 │   ├── config/
-│   │   └── risk_config.py
+│   │   └── risk_config.py       # Risk scoring configuration
 │   │
 │   ├── safety/
-│   │
-│   ├── safety/
-│   │   └── guardrails.py
+│   │   └── guardrails.py        # Input validation & safety guardrails
 │   │
 │   └── utils/
-│       ├── error_handler.py
-│       └── resilience.py
+│       ├── error_handler.py     # Standardized error handling wrapper
+│       └── resilience.py        # Retry, timeout & resilience utilities
 │
-│
-├── samples/
+├── samples/                     # Sample phishing & legitimate emails
 │   ├── dhl_delivery_failure_phish.eml
 │   ├── microsoft_password_reset_phish.eml
 │   ├── Updates to how privacy settings work on Play.eml
-│   └── Help shape Advent of Cyber 2026 🎄.eml
+│   └── Help shape Advent of Cyber 2026.eml
 │
 ├── images/
 │   ├── architecture.png
 │   └── title.png
 │
-├── tests/
-│   └── unit/
+├── tests/                       # Testing suite
+│   └── unit/                    # Unit tests for agents & tools
 │
-├── README.md
-├── .env
+├── .env                         # Environment variables (not committed)
 ├── requirements.txt
-└── pyproject.toml
+├── pyproject.toml
+└── README.md
+
 ```
 
 ---
@@ -305,28 +304,36 @@ Upload a .eml file and view the phishing analysis.
 
 ## 🧪 Testing Strategy
 
-This system includes a comprehensive testing suite to ensure production reliability.
+This project includes a comprehensive testing suite to ensure production reliability and safe multi-agent behavior.
 
 ### Unit Tests
-Validate individual components:
-- Email ingestion
-- Header analysis
-- Content analysis
-- Domain intelligence
-- Risk scoring
+Validate individual agents and tools:
+- Email ingestion agent
+- Header and content analysis agents
+- URL and domain intelligence agents
+- Attachment analysis
+- Risk scoring and reporting
 
-### Integration Tests
-Verify communication between agents and tools:
-- Detection → Risk scoring pipeline
-- Multi-agent orchestration flow
+### Integration-Level Testing
+Several tests simulate real workflow paths across multiple components:
+- Domain + VirusTotal lookup flows
+- URL analysis pipelines
+- Agent-to-tool interactions
+- Error and fallback scenarios
 
-### End-to-End Tests
-Simulate complete phishing analysis workflows using real `.eml` samples.
+These tests ensure agents and tools work together correctly under realistic conditions.
+
+### End-to-End Workflow Validation
+The system can be tested end-to-end using provided `.eml` samples through:
+- Streamlit UI
+- Prefect orchestration flow
 
 ```bash
 pytest --cov=phishing_analyzer
 ```
 ✔ Minimum 70% test coverage enforced
+
+The testing suite ensures stability, reliability, and safe production-style behavior.
 ---
 ## 🧰 Troubleshooting
 
